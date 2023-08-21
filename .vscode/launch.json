@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/../antlr4/dist/plsql-to-json-script.js",
+            "args": ["--sql-file", "../plsql-examples/example-4.sql"],
+            "skipFiles": ["<node_internals>/**"],
+            "stopOnEntry": true,
+            "cwd": "${workspaceFolder}/dist/",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "sourceMap": true,
+    "allowJs": false,
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "typeRoots": [
+      "node",
+      "./node_modules/@types",
+      "./src/typings"
+    ],
+  },
+  "include": [
+    "./src/*.ts",
+    "./src/generated/*.ts",
+    "./src/embedded/*.js",
+    "./src/typings/*"
+  ],
+  "exclude": [
+    "jest",
+    "grammar"
+  ],
+  "typeAcquisition": {
+      "include": [
+          "jest",
+          "node"
+      ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "google"
+    ],
+    "ignorePatterns": [
+        "**/*.d.ts",
+        "node_modules/",
+        "grammar/",
+        "dist/",
+        "src/generated"
+    ],
+    "rules": {
+      "require-jsdoc": "off"
+    }
+}
