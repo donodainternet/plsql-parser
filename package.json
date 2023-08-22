@@ -1,6 +1,6 @@
 {
   "name": "plsql-to-ast",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "PL/SQL Parser that just works",
   "keywords": [
     "plsql",
