@@ -1,4 +1,4 @@
-import {Logger} from './typings/PlSqlParser';
+import {Logger} from 'typings/PlSqlToAst';
 
 export const ConsoleLogger: Logger = {
   debug: (message: string) => console.debug(message),

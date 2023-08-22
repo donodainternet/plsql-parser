@@ -1,5 +1,5 @@
-import { Logger, ParseError } from './typings/PlSqlParser';
-export declare class PlSqlParser {
+import { Logger, ParseError } from 'typings/PlSqlToAst';
+export declare class PlSqlToAst {
     private parser;
     private data;
     private logger;
@@ -8,11 +8,11 @@ export declare class PlSqlParser {
     constructor();
     private createTokenStream;
     setLogger(logger: Logger): this;
-    toggleErrors(showErrors: boolean): PlSqlParser;
-    createParser(statements: string): PlSqlParser;
-    parse(): PlSqlParser;
-    traverse(): PlSqlParser;
-    resume(): PlSqlParser;
+    toggleErrors(showErrors: boolean): PlSqlToAst;
+    createParser(statements: string): PlSqlToAst;
+    parse(): PlSqlToAst;
+    traverse(): PlSqlToAst;
+    resume(): PlSqlToAst;
     flatten(): this;
     getResult(): {
         data: object;

@@ -1,9 +1,9 @@
 import path from 'path';
 import {readFileSync} from 'fs';
-import {PlSqlParser} from '../src/PlSqlParser';
-import {ParseError} from '../src/typings/PlSqlParser';
+import {PlSqlToAst} from '../src/PlSqlToAst';
+import {ParseError} from '../src/typings/PlSqlToAst';
 
-describe('PlSqlParser', () => {
+describe('PlSqlToAst', () => {
   const exampleFiles = [
     'example-1.sql',
     'example-2.sql',
@@ -20,9 +20,9 @@ describe('PlSqlParser', () => {
             path.join(__dirname, '..', 'plsql-examples', exampleFile);
       const statements = readFileSync(filePath, 'utf8');
 
-      const plsqlparser = new PlSqlParser();
+      const plsqltoast = new PlSqlToAst();
 
-      const result = plsqlparser
+      const result = plsqltoast
           .toggleErrors(false)
           .createParser(statements)
           .parse()
@@ -40,10 +40,10 @@ describe('PlSqlParser', () => {
   });
 
   it('should handle errors', () => {
-    const plsqlparser = new PlSqlParser();
+    const plsqltoast = new PlSqlToAst();
     const statements = 'INVALID SQL';
 
-    const result = plsqlparser
+    const result = plsqltoast
         .toggleErrors(false)
         .createParser(statements)
         .parse()

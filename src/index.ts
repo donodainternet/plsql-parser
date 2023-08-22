@@ -1,12 +1,12 @@
-import {PlSqlParser} from './PlSqlParser';
+import {PlSqlToAst} from './PlSqlToAst';
 
 export function getASTAsCompleteJSON(statements: string) {
-  const plsqlparser = new PlSqlParser();
+  const plsqltoast = new PlSqlToAst();
 
   let result = {};
 
   try {
-    result = plsqlparser
+    result = plsqltoast
         .createParser(statements)
         .parse()
         .traverse()
@@ -20,12 +20,12 @@ export function getASTAsCompleteJSON(statements: string) {
 }
 
 export function getASTAsJSON(statements: string) {
-  const plsqlparser = new PlSqlParser();
+  const plsqltoast = new PlSqlToAst();
 
   let result = {};
 
   try {
-    result = plsqlparser
+    result = plsqltoast
         .createParser(statements)
         .parse()
         .traverse()

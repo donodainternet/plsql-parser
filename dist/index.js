@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getASTAsJSON = exports.getASTAsCompleteJSON = void 0;
-const PlSqlParser_1 = require("./PlSqlParser");
+const PlSqlToAst_1 = require("./PlSqlToAst");
 function getASTAsCompleteJSON(statements) {
-    const plsqlparser = new PlSqlParser_1.PlSqlParser();
+    const plsqltoast = new PlSqlToAst_1.PlSqlToAst();
     let result = {};
     try {
-        result = plsqlparser
+        result = plsqltoast
             .createParser(statements)
             .parse()
             .traverse()
@@ -20,10 +20,10 @@ function getASTAsCompleteJSON(statements) {
 }
 exports.getASTAsCompleteJSON = getASTAsCompleteJSON;
 function getASTAsJSON(statements) {
-    const plsqlparser = new PlSqlParser_1.PlSqlParser();
+    const plsqltoast = new PlSqlToAst_1.PlSqlToAst();
     let result = {};
     try {
-        result = plsqlparser
+        result = plsqltoast
             .createParser(statements)
             .parse()
             .traverse()

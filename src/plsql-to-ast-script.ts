@@ -1,7 +1,7 @@
 import {existsSync, readFileSync} from 'fs';
-import {PlSqlParser} from './PlSqlParser';
+import {PlSqlToAst} from './PlSqlToAst';
 import yargs from 'yargs';
-import {CliOptions} from 'typings/PlSqlParser';
+import {CliOptions} from 'typings/PlSqlToAst';
 import path from 'path';
 // import {consoleLogger} from './PlSqlLogger';
 
@@ -30,8 +30,8 @@ const sqlFilePath = path.join(__dirname, args.argv['sql-file']);
 const statements = readFileSync(sqlFilePath, 'utf-8');
 
 let prettyAst = {};
-const plsqlparser = new PlSqlParser();
-prettyAst = plsqlparser
+const plsqltoast = new PlSqlToAst();
+prettyAst = plsqltoast
     // .setLogger(ConsoleLogger)
     .toggleErrors(args.argv['show-errors'])
     .createParser(statements)

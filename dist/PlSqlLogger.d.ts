@@ -1,2 +1,2 @@
-import { Logger } from './typings/PlSqlParser';
+import { Logger } from 'typings/PlSqlToAst';
 export declare const ConsoleLogger: Logger;

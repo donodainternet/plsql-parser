@@ -2,12 +2,12 @@ import {ANTLRInputStream, CommonTokenStream} from 'antlr4ts';
 import {MariaDBLexer} from './generated/MariaDBLexer';
 import {MariaDBParser} from './generated/MariaDBParser';
 import {ANTLRASTNode, ResultASTNode, Logger, ParseError}
-  from './typings/PlSqlParser';
+  from 'typings/PlSqlToAst';
 import {createLexerErrorListener, createParserErrorListener}
-  from './PlSqlParserErrorListener';
+  from './PlSqlToAstErrorListener';
 import {ConsoleLogger} from './PlSqlLogger';
 
-export class PlSqlParser {
+export class PlSqlToAst {
   private parser: MariaDBParser;
   private data: object;
   private logger: Logger;
@@ -49,12 +49,12 @@ export class PlSqlParser {
     return this;
   }
 
-  toggleErrors(showErrors: boolean): PlSqlParser {
+  toggleErrors(showErrors: boolean): PlSqlToAst {
     this.showErrors = showErrors;
     return this;
   }
 
-  createParser(statements: string): PlSqlParser {
+  createParser(statements: string): PlSqlToAst {
     const tokenStream: CommonTokenStream = this.createTokenStream(statements);
     const parser: MariaDBParser = new MariaDBParser(tokenStream);
     const errorListener =
@@ -79,12 +79,12 @@ export class PlSqlParser {
     return this;
   }
 
-  parse(): PlSqlParser {
+  parse(): PlSqlToAst {
     this.data = this.parser.sqlStatements();
     return this;
   }
 
-  traverse(): PlSqlParser {
+  traverse(): PlSqlToAst {
     function traverse(tree: ANTLRASTNode): ANTLRASTNode {
       const result: ANTLRASTNode = {'context': tree.constructor.name};
 
@@ -106,7 +106,7 @@ export class PlSqlParser {
     return this;
   }
 
-  resume(): PlSqlParser {
+  resume(): PlSqlToAst {
     function resume(tree: ANTLRASTNode, parent?: ANTLRASTNode): ResultASTNode {
       let result: ResultASTNode = {};
       if (tree?.children?.length > 1) {

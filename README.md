@@ -1,6 +1,6 @@
-# PlSql-Parser: Parse PL/SQL Code to JSON
+# plsql-to-ast: Parse PL/SQL Code to JSON
 
-PlSql-Parser is a powerful tool for parsing complex PL/SQL code and extracting its Abstract Syntax Tree (AST) into a structured JSON format. It's designed to handle various PL/SQL code constructs, including stored procedures, triggers, and functions, making it a versatile solution for analyzing and manipulating PL/SQL codebases.
+plsql-to-ast is a powerful tool for parsing complex PL/SQL code and extracting its Abstract Syntax Tree (AST) into a structured JSON format. It's designed to handle various PL/SQL code constructs, including stored procedures, triggers, and functions, making it a versatile solution for analyzing and manipulating PL/SQL codebases.
 
 ## Features
 
@@ -11,18 +11,18 @@ PlSql-Parser is a powerful tool for parsing complex PL/SQL code and extracting i
 
 ## Installation
 
-To install the PlSql-Parser module via npm, use the following command:
+To install the plsql-to-ast module via npm, use the following command:
 
 ```bash
-npm install plsql-parser
+npm install plsql-to-ast
 ```
 
 ## Command-Line Usage
 
-PlSql-Parser can be used via the command line to generate JSON output for a provided PL/SQL file. The following options are available:
+plsql-to-ast can be used via the command line to generate JSON output for a provided PL/SQL file. The following options are available:
 ```bash
 # Provide a PL/SQL file to generate abstraction (required)
-node dist/plsql-to-json-script.js --sql-file=path/to/your/plsql/file.sql
+node dist/plsql-to-ast-script.js --sql-file=path/to/your/sql/file.sql
 ```
 Options:
 ```bash
@@ -33,9 +33,9 @@ Options:
 
 ## Module Usage
 
-You can also use PlSql-Parser as a module in your TypeScript project:
+You can also use plsql-to-ast as a module in your TypeScript project:
 ```javascript
-import { getASTAsJSON } from "plsql-parser";
+import { getASTAsJSON } from "plsql-to-ast";
 
 const query = 'SELECT * FROM \`employees\`;';
 const jsonOutput = getASTAsJSON(query);
@@ -128,7 +128,7 @@ END
     </pre>
   </div>
 </div>
-Please explore the `plsql-examples` directory for additional test cases and examples to see how PlSql-Parser handles various PL/SQL scenarios.
+Please explore the `plsql-examples` directory for additional test cases and examples to see how plsql-to-ast handles various PL/SQL scenarios.
 
 ## Contributions and Feedback
 
@@ -136,4 +136,4 @@ Contributions to the project are welcome! If you encounter any issues or have su
 
 ## Thanks
 
-Thank you for considering PlSql-Parser for your PL/SQL parsing needs. We hope this tool proves valuable in your development and analysis workflows. Happy coding!
+Thank you for considering plsql-to-ast for your PL/SQL parsing needs. We hope this tool proves valuable in your development and analysis workflows. Happy coding!

@@ -19,4 +19,4 @@ function createParserErrorListener(onError) {
     return errorListener;
 }
 exports.createParserErrorListener = createParserErrorListener;
-//# sourceMappingURL=PlSqlParserErrorListener.js.map
+//# sourceMappingURL=PlSqlToAstErrorListener.js.map

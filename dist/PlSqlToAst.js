@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PlSqlParser = void 0;
+exports.PlSqlToAst = void 0;
 const antlr4ts_1 = require("antlr4ts");
 const MariaDBLexer_1 = require("./generated/MariaDBLexer");
 const MariaDBParser_1 = require("./generated/MariaDBParser");
-const PlSqlParserErrorListener_1 = require("./PlSqlParserErrorListener");
+const PlSqlToAstErrorListener_1 = require("./PlSqlToAstErrorListener");
 const PlSqlLogger_1 = require("./PlSqlLogger");
-class PlSqlParser {
+class PlSqlToAst {
     constructor() {
         this.showErrors = false;
         this.errorStack = [];
@@ -15,7 +15,7 @@ class PlSqlParser {
     createTokenStream(satements) {
         const chars = new antlr4ts_1.ANTLRInputStream(satements);
         const lexer = new MariaDBLexer_1.MariaDBLexer(chars);
-        const errorListener = PlSqlParserErrorListener_1.createLexerErrorListener((type, _recognizer, offendingSymbol, line, charPosition, msg) => {
+        const errorListener = PlSqlToAstErrorListener_1.createLexerErrorListener((type, _recognizer, offendingSymbol, line, charPosition, msg) => {
             const logMessage = {
                 type,
                 line,
@@ -45,7 +45,7 @@ class PlSqlParser {
     createParser(statements) {
         const tokenStream = this.createTokenStream(statements);
         const parser = new MariaDBParser_1.MariaDBParser(tokenStream);
-        const errorListener = PlSqlParserErrorListener_1.createParserErrorListener((type, _recognizer, offendingSymbol, line, charPosition, msg) => {
+        const errorListener = PlSqlToAstErrorListener_1.createParserErrorListener((type, _recognizer, offendingSymbol, line, charPosition, msg) => {
             const logMessage = {
                 type,
                 line,
@@ -121,5 +121,5 @@ class PlSqlParser {
         return result;
     }
 }
-exports.PlSqlParser = PlSqlParser;
-//# sourceMappingURL=PlSqlParser.js.map
+exports.PlSqlToAst = PlSqlToAst;
+//# sourceMappingURL=PlSqlToAst.js.map
